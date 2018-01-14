@@ -1,8 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\..\build\OpenSage.EffectCompiler.props" />
+
+  <PropertyGroup Condition=" '$(OS)' != 'Unix' ">
+    <TargetFrameworks>net462</TargetFrameworks>
+    <RootNamespace>OpenSage</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
   
-  <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
+  <PropertyGroup Condition=" '$(OS)' == 'Unix' ">
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <RootNamespace>OpenSage</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
