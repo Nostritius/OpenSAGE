@@ -21,7 +21,8 @@
   <Target Name="CompileEffects" 
           BeforeTargets="BeforeBuild"
           Inputs="@(EffectShader)"
-          Outputs="@(EffectShader->'%(RelativeDir)%(Filename).fxo');">
+          Outputs="@(EffectShader->'%(RelativeDir)%(Filename).fxo');"
+          Condition="$(OS) != Unix">
     <PropertyGroup>
       <IsDebug>false</IsDebug>
       <IsDebug Condition=" '$(Configuration)' == 'Debug' ">true</IsDebug>
